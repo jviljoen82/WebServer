@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const path = require('path');
+const { executor } = require('child_process');
+const gitPull = executor('git', ['pull']);
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
 app.use(express.static('public'));
@@ -17,7 +19,23 @@ app.get('/', (req, res) => {
 });
 
 app.post('/webUpdate', (req, res) => {
-  console.log(req.body);
+  try {
+    if (req) {
+      gitPull.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      })
+
+      gitPull.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+      });
+
+      gitPull.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+      });
+    }
+  } catch (Exception ex) {
+    console.log(ex.toString());
+  }
 });
 
 const server = http.listen(80, () => {
