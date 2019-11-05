@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.post('/webUpdate', (req, res) => {
   try {
+      sleep(5000);
       console.log('doing web update!');
       const gitPull = executor('git pull');
 
@@ -43,3 +44,11 @@ const server = http.listen(80, () => {
   const port = server.address().port;
   console.log('listening on host: ' + host + ' port no: ' + port);
 });
+
+
+
+function sleep(ms){
+  return new Promise(resolve=>{
+    setTimeout(resolve,ms)
+  })
+}
