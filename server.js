@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.post('/webUpdate', (req, res) => {
   try {
-    if (req) {
+      console.log('doing web update!');
       const gitPull = executor('git pull');
 
       gitPull.stdout.on('data', (data) => {
@@ -33,7 +33,6 @@ app.post('/webUpdate', (req, res) => {
       gitPull.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
       });
-    }
   } catch (ex) {
     console.log(ex.toString());
   }
