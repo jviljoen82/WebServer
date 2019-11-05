@@ -33,7 +33,7 @@ app.post('/webUpdate', (req, res) => {
         console.log(`child process exited with code ${code}`);
       });
     }
-  } catch (Exception ex) {
+  } catch (ex) {
     console.log(ex.toString());
   }
 });
