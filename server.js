@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
   res.sendFile(pathToIndex);
 });
 
+app.post('/webUpdate', (req, res) => {
+  console.log(req.body);
+});
+
 const server = http.listen(80, () => {
   const host = server.address().address;
   const port = server.address().port;
