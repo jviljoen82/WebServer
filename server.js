@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const path = require('path');
-const executor = require('child_process').exec
+const executor = require('child_process').spawn;
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
 app.use(express.static('public'));
@@ -20,7 +20,9 @@ app.get('/', (req, res) => {
 app.post('/webUpdate', (req, res) => {
   try {
     if (req) {
-      const gitPull = executor('git pull');
+      const gitPull = executor('git', ['pull'], {
+        detached: false
+      });
 
       gitPull.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
