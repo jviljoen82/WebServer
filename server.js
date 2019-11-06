@@ -27,9 +27,7 @@ app.post('/webUpdate', (req, res) => {
       });
 
       const gulper = executor('npm run gulp');
-      gulper.stderr.on('data', (data) => {
-          console.error(`stderr: ${data}`);
-      });
+      
 
   } catch (ex) {
     console.log(ex.toString());
