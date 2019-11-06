@@ -20,20 +20,17 @@ app.get('/', (req, res) => {
 app.post('/webUpdate', (req, res) => {
   try {
       sleep(5000);
-      console.log('doing web update!');
+      
       const gitPull = executor('git pull');
-
-      gitPull.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`);
-      })
-
       gitPull.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);
       });
 
-      gitPull.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
+      const gulper = executor('gulp');
+      gulper.stderr.on('data', (data) => {
+          console.error(`stderr: ${data}`);
       });
+
   } catch (ex) {
     console.log(ex.toString());
   }
