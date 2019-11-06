@@ -4,7 +4,7 @@ ZumisApp.controller('AppCtrl', ($scope) => {
 
 });
 
-ZumisApp.directive('mainBody', () => {
+ZumisApp.directive('main_body', () => {
     return {
         template: "<img src='../images/Kazumi.jpeg' alt='' />"
     };
