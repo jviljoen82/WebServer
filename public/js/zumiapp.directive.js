@@ -1,6 +1,6 @@
 ZumisApp.directive('mainBody', () => {
     return {
-        template: `<div class="standardTheme">
+        template: `<div>
                         <img src='../images/Kazumi.jpeg' alt='' />
                         <h2> Kazumi says...WAIT!!! </h2>
                         <img src='../images/Under-Construction.jpg' alt='' />
