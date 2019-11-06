@@ -27,7 +27,7 @@ app.post('/webUpdate', (req, res) => {
       });
 
       const gulper = executor('npm run gulp');
-      
+
 
   } catch (ex) {
     console.log(ex.toString());
