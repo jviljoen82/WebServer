@@ -1,0 +1,3 @@
+ZumisApp.controller('AppCtrl', ($scope) => {
+
+});
