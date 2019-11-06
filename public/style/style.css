@@ -1,2 +1,5 @@
 @import 'angular-material.min.css';
 
+.menuTop {
+    background-color: #4682B4;
+}
