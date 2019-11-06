@@ -1,1 +1,1 @@
-const ZumisApp = angular.module('ZumisWorldApp', []);
+const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages']);
