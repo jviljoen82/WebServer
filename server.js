@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.post('/webUpdate', (req, res) => {
   try {
       sleep(5000);
-      
+
       const gitPull = executor('git pull');
       gitPull.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);
