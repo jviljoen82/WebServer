@@ -34,9 +34,11 @@ const Message = mongoose.model('Message', {
 
 const dbUrl = 'mongodb://localhost:27017/local'; // setup mongo db
 
-mongoose.connect(dbUrl, { useNewUrlParser: false }, (err) => {
+mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     io.emit('mongodbconnected');
-    console.log('MongoDB Error: ', err);
+    if (err) {
+        console.log('MongoDB Error: ', err);
+    }
 });
 
 io.on('connection', () => {
