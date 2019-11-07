@@ -9,6 +9,7 @@
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.7.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-angular-templatecache": "^3.0.0",
