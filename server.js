@@ -1,23 +1,29 @@
 const express = require('express');
-const app = express();
+const web = express();
+const backendApp = express();
+const backendRoute = require('http').Server(backendApp);
 const bodyParser = require('body-parser');
-const http = require('http').Server(app);
+const http = require('http').Server(web);
 const path = require('path');
 const executor = require('child_process').exec;
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+
+/***************************************************
+ * Web server on port 80 for linux host......
+ */
+web.use(express.static('public'));
+web.use(bodyParser.json());
+web.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.get('/', (req, res) => {
+web.get('/', (req, res) => {
   const pathToIndex = path.join(__dirname, '/public/', 'index.html');
   res.sendFile(pathToIndex);
 });
 
-app.post('/webUpdate', (req, res) => {
+web.post('/webUpdate', (req, res) => {
   try {
       sleep(5000);
 
@@ -34,14 +40,15 @@ app.post('/webUpdate', (req, res) => {
   }
 });
 
-const server = http.listen(80, () => {
-  const host = server.address().address;
-  const port = server.address().port;
-  console.log('listening on host: ' + host + ' port no: ' + port);
+const WebServer = http.listen(80, () => {
+  const host = WebServer.address().address;
+  const port = WebServer.address().port;
+  console.log(' web listening on host: ' + host + ' port no: ' + port);
 });
 
-
-
+/*********************************************
+ *  Other internal functions
+ */
 function sleep(ms){
   return new Promise(resolve=>{
     setTimeout(resolve,ms)
