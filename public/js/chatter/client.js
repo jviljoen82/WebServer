@@ -33,8 +33,16 @@ function addMessages(message) {
 function getMessages() {
   const sync = $.Deferred();
   $('#messages').empty();
-  $.get('http://192.243.100.152:8099/call', { id: 999 }, (data) => {
-    data.forEach(addMessages);
+  $.ajax({
+    type: 'GET',
+    url: 'http://144.91.93.57:8070/call',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    data: { id: 999 },
+    success: (data) => {
+      data.forEach(addMessages);
+    }
   });
   setTimeout(() => {
     sync.resolve();
@@ -44,9 +52,17 @@ function getMessages() {
 
 function latestMsg() {
   const sync = $.Deferred();
-  $.get('http://192.243.100.152:8099/call', { id: 999 }, (data) => {
-    const lastMsg = data[data.length - 1];
-    addMessages(lastMsg);
+  $.ajax({
+    type: 'GET',
+    url: 'http://144.91.93.57:8070/call',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    data: { id: 999 },
+    success: (data) => {
+      const lastMsg = data[data.length - 1];
+      addMessages(lastMsg);
+    }
   });
   setTimeout(() => {
     sync.resolve();
@@ -55,5 +71,13 @@ function latestMsg() {
 }
 
 function sendMessage(message) {
-    $.post('http://192.243.100.152:8099/msg', message);
+  $.ajax({
+    type: 'POST',
+    url: 'http://144.91.93.57:8070/msg',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    data: message,
+    success: () => {}
+  });
 }

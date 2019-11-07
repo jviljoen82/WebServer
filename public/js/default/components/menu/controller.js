@@ -11,6 +11,13 @@ class MenuCtrl {
     SlappyLaunch() {
         console.log('Slappy Ninja launch');
     }
+
+    showChat() {
+        console.log('Chat Panel');
+        document.getElementById('mainBody').classList.add('mainBodyKeepLeft');
+        document.getElementById('chatPanel').classList.add('sidePanel');
+        document.getElementById('chatPanel').style.display = 'block';
+    }
 }
 
 ZumisApp.controller('menuCtrl', MenuCtrl);
