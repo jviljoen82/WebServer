@@ -5,6 +5,7 @@ class MenuCtrl {
 
     LaunchDrench() {
         console.log('Drench game launch');
+        document.getElementById('drenchDialogContainer').dispatchEvent(new Event('click'));
     }
 
     SlappyLaunch() {
