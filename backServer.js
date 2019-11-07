@@ -3,8 +3,8 @@ const backendApp = express();
 const backendRoute = require('http').Server(backendApp);
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const io = require('socket.io')(http);
 const http = require('http').Server(web);
+const io = require('socket.io')(http);
 const path = require('path');
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
