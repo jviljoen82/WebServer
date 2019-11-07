@@ -25,7 +25,7 @@ const Message = mongoose.model('Message', {
     message: String
 });
 
-const dbUrl = 'mongodb://localhost:43782/dirtychat'; // setup mongo db
+const dbUrl = 'mongodb://localhost:27017/dirtychat'; // setup mongo db
 
 mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
     io.emit('mongodbconnected');
