@@ -7,17 +7,24 @@ const http = require('http').Server(backendApp);
 const io = require('socket.io')(http);
 const path = require('path');
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
+const cors = require('cors');
 
 /**************************************************
  * Backend server Running on port 8070 for app functions...
  * also to be used on windows based IIS server
  */
+let corsOptions = {
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    optionsSuccessStatus: 200
+};
 
 backendApp.use(express.static('public'));
 backendApp.use(bodyParser.json());
 backendApp.use(bodyParser.urlencoded({
     extended: false
 }));
+backendApp.use(cors());
 
 const Message = mongoose.model('Message', {
     id: Number,
@@ -36,7 +43,7 @@ io.on('connection', () => {
     io.emit('userconnected');
 });
 
-backendApp.post('/msg', (req, res) => {
+backendApp.post('/msg', cors(corsOptions), (req, res) => {
     try {
         const message = new Message(req.body);
         console.log('Msg: ' + message);
@@ -54,7 +61,7 @@ backendApp.post('/msg', (req, res) => {
     }
 });
 
-backendApp.get('/messages/:user', (req, res) => {
+backendApp.get('/messages/:user', cors(corsOptions), (req, res) => {
     const user = req.params.user;
     Message.find({ name: user }, (err, messages) => {
         res.send(messages);
@@ -62,7 +69,7 @@ backendApp.get('/messages/:user', (req, res) => {
     });
 });
 
-backendApp.get('/call', (req, res) => {
+backendApp.get('/call', cors(corsOptions), (req, res) => {
     const msgID = req.query.id;
     Message.find({ id: msgID }, (err, messages) => {
         res.send(messages);
@@ -70,7 +77,7 @@ backendApp.get('/call', (req, res) => {
     });
 });
 
-backendApp.get('/ping', (req, res) => {
+backendApp.get('/ping', cors(corsOptions), (req, res) => {
     res.sendStatus(200);
 });
 
