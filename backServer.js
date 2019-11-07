@@ -51,7 +51,9 @@ backendApp.post('/msg', cors(corsOptions), (req, res) => {
         console.log('Msg: ' + message);
         const savedMessage = message.save((err) => {
             res.sendStatus(200);
-            console.log(err);
+            if (err) {
+                console.log(err);
+            }
         });
         console.log(savedMessage);
     } catch (error) {
@@ -67,7 +69,9 @@ backendApp.get('/messages/:user', cors(corsOptions), (req, res) => {
     const user = req.params.user;
     Message.find({ name: user }, (err, messages) => {
         res.send(messages);
-        console.log(err);
+        if (err) {
+            console.log(err);
+        }
     });
 });
 
@@ -101,8 +105,3 @@ const backendServer = backendRoute.listen(8070, () => {
 /*********************************************
  *  Other internal functions
  */
-function sleep(ms){
-    return new Promise(resolve=>{
-        setTimeout(resolve,ms)
-    })
-}
