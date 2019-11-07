@@ -34,7 +34,7 @@ const Message = mongoose.model('Message', {
 
 const dbUrl = 'mongodb://localhost:27017/dirtychat'; // setup mongo db
 
-mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
+mongoose.connect(dbUrl, { useNewUrlParser: false }, (err) => {
     io.emit('mongodbconnected');
     console.log('MongoDB Error: ', err);
 });
@@ -81,7 +81,7 @@ backendApp.get('/ping', cors(corsOptions), (req, res) => {
     res.sendStatus(200);
 });
 
-backendApp.get('/', (req, res) => {
+backendApp.get('/', cors(corsOptions), (req, res) => {
     const pathToIndex = path.join(__dirname, '/public/', 'index.html');
     res.sendFile(pathToIndex);
 });

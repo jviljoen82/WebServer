@@ -1,7 +1,5 @@
 const express = require('express');
 const web = express();
-const backendApp = express();
-const backendRoute = require('http').Server(backendApp);
 const bodyParser = require('body-parser');
 const http = require('http').Server(web);
 const path = require('path');
