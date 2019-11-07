@@ -75,7 +75,9 @@ backendApp.get('/call', cors(corsOptions), (req, res) => {
     const msgID = req.query.id;
     Message.find({ id: msgID }, (err, messages) => {
         res.send(messages);
-        console.log(err);
+        if (err) {
+            console.log(err);
+        }
     });
 });
 
