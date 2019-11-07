@@ -1,11 +1,11 @@
 const express = require('express');
-const web = express();
 const backendApp = express();
 const backendRoute = require('http').Server(backendApp);
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const io = require('socket.io')(http);
 const http = require('http').Server(web);
 const path = require('path');
-const executor = require('child_process').exec;
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
 /**************************************************
@@ -19,27 +19,66 @@ backendApp.use(bodyParser.urlencoded({
     extended: false
 }));
 
+const Message = mongoose.model('Message', {
+    id: Number,
+    name: String,
+    message: String
+});
+
+const dbUrl = 'mongodb://localhost:27017/dirtychat'; // setup mongo db
+
+mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
+    io.emit('mongodbconnected');
+    console.log('MongoDB Error: ', err);
+});
+
+io.on('connection', () => {
+    io.emit('userconnected');
+});
+
+backendApp.post('/msg', (req, res) => {
+    try {
+        const message = new Message(req.body);
+        console.log('Msg: ' + message);
+        const savedMessage = message.save((err) => {
+            res.sendStatus(200);
+            console.log(err);
+        });
+        console.log(savedMessage);
+    } catch (error) {
+        res.sendStatus(500);
+        return console.log('post error:' + error);
+    } finally {
+        console.log('Message Posted');
+        io.emit('message');
+    }
+});
+
+backendApp.get('/messages/:user', (req, res) => {
+    const user = req.params.user;
+    Message.find({ name: user }, (err, messages) => {
+        res.send(messages);
+        console.log(err);
+    });
+});
+
+backendApp.get('/call', (req, res) => {
+    const msgID = req.query.id;
+    Message.find({ id: msgID }, (err, messages) => {
+        res.send(messages);
+        console.log(err);
+    });
+});
+
+backendApp.get('/ping', (req, res) => {
+    res.sendStatus(200);
+});
+
 backendApp.get('/', (req, res) => {
     const pathToIndex = path.join(__dirname, '/public/', 'index.html');
     res.sendFile(pathToIndex);
 });
 
-backendApp.post('/webUpdate', (req, res) => {
-    try {
-        sleep(5000);
-
-        const gitPull = executor('git pull');
-        gitPull.stderr.on('data', (data) => {
-            console.error(`stderr: ${data}`);
-        });
-
-        const gulper = executor('npm run gulp');
-
-
-    } catch (ex) {
-        console.log(ex.toString());
-    }
-});
 
 const backendServer = backendRoute.listen(8070, () => {
     const host = backendServer.address().address;

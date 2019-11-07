@@ -8,3 +8,14 @@
     width: 400px;
     height: 460px;
 }
+
+.chatback {
+    background-color: #000000;
+}
+
+.chatwindow {
+    background-color: #FFFFFF;
+    float:left;
+    overflow-y: auto;
+    height: 450px;
+}
