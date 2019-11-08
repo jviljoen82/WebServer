@@ -1,5 +1,5 @@
 <div>
-    <md-menu-bar>
+    <md-menu-bar class="menuBar">
         <md-menu>
             <md-button ng-click="$mdMenu.open($event)" class="md-button menuTop" aria-label="Open Games menu">
                GAMES
@@ -8,6 +8,12 @@
                 <md-menu-item><md-button ng-click="$ctrl.LaunchDrench()">Drench</md-button></md-menu-item>
                 <md-menu-item><md-button ng-click="$ctrl.SlappyLaunch()">Slappy Ninja</md-button></md-menu-item>
             </md-menu-content>
+        </md-menu>
+        <md-menu>
+            <md-button ng-click="$ctrl.DownloadDialog()" class="md-button menuTop" aria-label="Open Chat panel">
+                DOWNLOADS
+            </md-button>
+            <md-menu-content></md-menu-content>
         </md-menu>
         <md-menu>
             <md-button ng-click="$ctrl.showChat()" class="md-button menuTop" aria-label="Open Chat panel">

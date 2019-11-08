@@ -8,6 +8,11 @@ class MenuCtrl {
         document.getElementById('drenchDialogContainer').dispatchEvent(new Event('click'));
     }
 
+    DownloadDialog() {
+        console.log('Open download dialog');
+        document.getElementById('downloadDialogContainer').dispatchEvent(new Event('click'));
+    }
+
     SlappyLaunch() {
         console.log('Slappy Ninja launch');
     }
