@@ -25,12 +25,9 @@
 }
 
 .sidePanel {
-    position: absolute;
-    top: 15%;
-    right: 100%;
-    bottom: 100%;
+    top:15%;
     left: 75%;
-
+    height: 600px;
 }
 
 .mainBodyKeepLeft {

@@ -19,9 +19,7 @@ class MenuCtrl {
 
     showChat() {
         console.log('Chat Panel');
-        document.getElementById('mainBody').classList.add('mainBodyKeepLeft');
-        document.getElementById('chatPanel').classList.add('sidePanel');
-        document.getElementById('chatPanel').style.display = 'block';
+        document.getElementById('chatPanel').dispatchEvent(new Event('click'));
     }
 }
 
