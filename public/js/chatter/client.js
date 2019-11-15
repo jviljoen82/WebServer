@@ -25,11 +25,12 @@ socket.on('message', () => {
 });
 
 function addMessages(message) {
-  $('#messages').append(`    
+  $('#messages').append(`
+    <div class="col-md-12">    
       <h4> ${message.name} </h4>
-      <br>
       <p>  ${message.message} </p>
-      <br>
+    </div>s
+    </div>s
     `);
 }
 
