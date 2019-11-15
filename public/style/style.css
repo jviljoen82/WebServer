@@ -37,3 +37,12 @@
     bottom: 100%;
     left: 0%;
 }
+
+.whiteBackground {
+    background-color: #ffffff;
+}
+
+.redFont {
+    font-weight: bold;
+    color: #EE0000;
+}
