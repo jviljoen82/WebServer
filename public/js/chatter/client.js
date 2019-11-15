@@ -1,21 +1,14 @@
 const msgDiv = document.getElementById('messages');
-const socket = io();
+const socket = io.connect('http://144.91.93.57:8080');
 
-/*
 $(window).on('load', () => {
   getMessages().then(autoScroll);  
 });
-*/
-
-document.onload = () => {
-  getMessages().then(autoScroll);
-};
 
 function autoScroll() {
   msgDiv.scrollTop = msgDiv.scrollHeight;
 }
 
-/*
 $(() => {
   $('#send').click(() => {
     sendMessage({
@@ -26,23 +19,13 @@ $(() => {
     $('#message').empty();
   });
 });
-*/
-
-document.getElementById("send").onclick = () => {
-  sendMessage({
-    id: 999,
-    name: document.getElementById('name').value,
-    message: document.getElementById('#message').value
-  });
-  document.getElementById('#message').setAttribute('value','');
-};
 
 socket.on('message', () => {
   latestMsg().then(autoScroll);
 });
 
 function addMessages(message) {
-  msgDiv.append(`
+  $('#messages').append(`
     <div class="col-md-12">    
       <h4> ${message.name} </h4>
       <p>  ${message.message} </p>
@@ -52,7 +35,7 @@ function addMessages(message) {
 
 function getMessages() {
   const sync = $.Deferred();
-  msgDiv.empty();
+  $('#messages').empty();
   $.ajax({
     type: 'GET',
     url: 'http://144.91.93.57:8070/call',
@@ -99,8 +82,7 @@ function sendMessage(message) {
     },
     data: message,
     success: () => {setTimeout( () => {
-        socket.sockets.emit('message');
-      }, 1500);
-    }
+      latestMsg().then(autoScroll);
+    }, 1500)}
   });
 }

@@ -19,6 +19,8 @@ let corsOptions = {
     optionsSuccessStatus: 200
 };
 
+http.listen(8080);
+
 backendApp.use(express.static('public'));
 backendApp.use(bodyParser.json());
 backendApp.use(bodyParser.urlencoded({
