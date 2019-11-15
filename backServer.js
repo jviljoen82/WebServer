@@ -44,7 +44,7 @@ io.sockets.on('connection', () => {
     io.sockets.emit('userconnected');
 });
 
-backendRoute.post('/msg', cors(corsOptions), (req, res) => {
+backendApp.post('/msg', cors(corsOptions), (req, res) => {
     try {
         const message = new Message(req.body);
         console.log('Msg: ' + message);
@@ -64,7 +64,7 @@ backendRoute.post('/msg', cors(corsOptions), (req, res) => {
     }
 });
 
-backendRoute.get('/messages/:user', cors(corsOptions), (req, res) => {
+backendApp.get('/messages/:user', cors(corsOptions), (req, res) => {
     const user = req.params.user;
     Message.find({ name: user }, (err, messages) => {
         res.send(messages);
@@ -74,7 +74,7 @@ backendRoute.get('/messages/:user', cors(corsOptions), (req, res) => {
     });
 });
 
-backendRoute.get('/call', cors(corsOptions), (req, res) => {
+backendApp.get('/call', cors(corsOptions), (req, res) => {
     const msgID = req.query.id;
     Message.find({ id: msgID }, (err, messages) => {
         res.send(messages);
@@ -84,11 +84,11 @@ backendRoute.get('/call', cors(corsOptions), (req, res) => {
     });
 });
 
-backendRoute.get('/ping', cors(corsOptions), (req, res) => {
+backendApp.get('/ping', cors(corsOptions), (req, res) => {
     res.sendStatus(200);
 });
 
-backendRoute.get('/', cors(corsOptions), (req, res) => {
+backendApp.get('/', cors(corsOptions), (req, res) => {
     const pathToIndex = path.join(__dirname, '/public/', 'index.html');
     res.sendFile(pathToIndex);
 });
