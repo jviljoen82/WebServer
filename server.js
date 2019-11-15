@@ -11,6 +11,7 @@ require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create(
  * Web server on port 80 for linux host......
  */
 web.use(express.static('public'));
+web.use(express.static('data'));
 web.use(bodyParser.json());
 web.use(bodyParser.urlencoded({
   extended: false
