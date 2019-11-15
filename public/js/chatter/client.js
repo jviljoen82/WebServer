@@ -81,9 +81,9 @@ function sendMessage(message) {
       'Access-Control-Allow-Origin': '*'
     },
     data: message,
-    success: () => {/*setTimeout( () => {
-        latestMsg().then(autoScroll);
-      }, 1500); */
+    success: () => {setTimeout( () => {
+        socket.sockets.emit('message');
+      }, 1500);
     }
   });
 }
