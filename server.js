@@ -26,8 +26,7 @@ web.post('/webUpdate', (req, res) => {
   try {
 
       if (req) {
-          doUpdate();
-          res.status(200).send();
+          if (doUpdate()) res.status(200).send();
       } else {
           res.status(400).send('No payload, server not updated!');
       }
