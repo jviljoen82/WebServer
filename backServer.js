@@ -1,10 +1,10 @@
 const express = require('express');
 const backendApp = express();
-const backendRoute = require('http').createServer(backendApp);
+const backendRoute = require('http').Server(backendApp);
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const http = require('http').createServer(backendApp);
-const io = require('socket.io').listen(http);
+const http = require('http').Server(backendApp);
+const io = require('socket.io')(http);
 const path = require('path');
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 const cors = require('cors');
@@ -35,17 +35,14 @@ const Message = mongoose.model('Message', {
 const dbUrl = 'mongodb://localhost:27017/local'; // setup mongo db
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    io.emit('mongodbconnected');
     if (err) {
         console.log('MongoDB Error: ', err);
     }
-}).then(() => {});
-
-io.sockets.on('connection', () => {
-    io.sockets.emit('userconnected');
 });
 
-io.sockets.on('message', () => {
-    console.log('Message emitted from client');
+io.on('connection', () => {
+    io.emit('userconnected');
 });
 
 backendApp.post('/msg', cors(corsOptions), (req, res) => {
@@ -58,13 +55,13 @@ backendApp.post('/msg', cors(corsOptions), (req, res) => {
                 console.log(err);
             }
         });
-        if (savedMessage) console.log(savedMessage);
+        console.log(savedMessage);
     } catch (error) {
         res.sendStatus(500);
         return console.log('post error:' + error);
     } finally {
         console.log('Message Posted');
-        io.sockets.emit('message');
+        io.emit('message');
     }
 });
 
@@ -103,3 +100,8 @@ const backendServer = backendRoute.listen(8070, () => {
     const port = backendServer.address().port;
     console.log('backend listening on host: ' + host + ' port no: ' + port);
 });
+
+
+/*********************************************
+ *  Other internal functions
+ */
