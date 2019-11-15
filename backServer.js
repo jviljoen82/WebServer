@@ -61,7 +61,7 @@ backendApp.post('/msg', cors(corsOptions), (req, res) => {
         return console.log('post error:' + error);
     } finally {
         console.log('Message Posted');
-        io.emit('message');
+        io.sockets.emit('message');
     }
 });
 
