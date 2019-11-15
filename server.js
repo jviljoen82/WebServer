@@ -24,15 +24,10 @@ web.get('/', (req, res) => {
 
 web.post('/webUpdate', (req, res) => {
   try {
-      sleep(5000);
-      if (req) {
-          const gitPull = executor('git pull');
-          gitPull.stderr.on('data', (data) => {
-              console.error(`stderr: ${data}`);
-          });
-          const gulper = executor('npm run gulp');
-      }
 
+      if (req) {
+          doUpdate();
+      }
       res.status(200).send();
 
   } catch (ex) {
@@ -54,4 +49,16 @@ function sleep(ms){
   return new Promise(resolve=>{
     setTimeout(resolve,ms)
   })
+}
+
+async function doUpdate() {
+    await sleep(5000);
+    const gitPull = executor('git pull');
+    gitPull.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+    const gulper = executor('npm run gulp');
+    gulper.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
 }
