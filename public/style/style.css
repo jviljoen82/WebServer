@@ -14,14 +14,22 @@
 
 .chatback {
     background-color: #000000;
-    height: 600px;
+    height: 800px;
 }
 
 .chatwindow {
     background-color: #FFFFFF;
     float:left;
     overflow-y: auto;
-    height: 450px;
+    height: 500px;
+}
+
+.container {
+    height: 790px;
+}
+
+.jumbotron {
+    height: 290px;
 }
 
 .sidePanel {
