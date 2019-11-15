@@ -29,8 +29,7 @@ function addMessages(message) {
     <div class="col-md-12">    
       <h4> ${message.name} </h4>
       <p>  ${message.message} </p>
-    </div>s
-    </div>s
+    </div>
     `);
 }
 
