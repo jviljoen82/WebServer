@@ -28,7 +28,9 @@ function addMessages(message) {
   $('#messages').append(`
     <div row>
       <h4> ${message.name} </h4>
+      <br>
       <p>  ${message.message} </p>
+      <br>
     </div>`);
 }
 
