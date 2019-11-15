@@ -26,7 +26,7 @@ socket.on('message', () => {
 
 function addMessages(message) {
   $('#messages').append(`
-    <div row>
+    <div class="row">
       <h4> ${message.name} </h4>
       <br>
       <p>  ${message.message} </p>
