@@ -24,17 +24,19 @@ web.get('/', (req, res) => {
 web.post('/webUpdate', (req, res) => {
   try {
       sleep(5000);
+      if (req) {
+          const gitPull = executor('git pull');
+          gitPull.stderr.on('data', (data) => {
+              console.error(`stderr: ${data}`);
+          });
+          const gulper = executor('npm run gulp');
+      }
 
-      const gitPull = executor('git pull');
-      gitPull.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-      });
-
-      const gulper = executor('npm run gulp');
-
+      res.status(200).send();
 
   } catch (ex) {
     console.log(ex.toString());
+    res.status(500).send("Server not updated!");
   }
 });
 
