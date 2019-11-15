@@ -1,5 +1,6 @@
 const msgDiv = document.getElementById('messages');
-const socket = io.connect('http://144.91.93.57:8080');
+const socket = io.connect('http://zumisworld.ga:8080');
+const chatServerUrl = 'http://zumisworld.ga:8070'
 
 $(window).on('load', () => {
   getMessages().then(autoScroll);  
@@ -38,7 +39,7 @@ function getMessages() {
   $('#messages').empty();
   $.ajax({
     type: 'GET',
-    url: 'http://144.91.93.57:8070/call',
+    url: chatServerUrl+'/call',
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
@@ -57,7 +58,7 @@ function latestMsg() {
   const sync = $.Deferred();
   $.ajax({
     type: 'GET',
-    url: 'http://144.91.93.57:8070/call',
+    url: chatServerUrl+'/call',
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
@@ -76,7 +77,7 @@ function latestMsg() {
 function sendMessage(message) {
   $.ajax({
     type: 'POST',
-    url: 'http://144.91.93.57:8070/msg',
+    url: chatServerUrl+'/msg',
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
