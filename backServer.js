@@ -1,10 +1,10 @@
 const express = require('express');
 const backendApp = express();
-const backendRoute = require('http').Server(backendApp);
+const backendRoute = require('http').createServer(backendApp);
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const http = require('http').Server(backendApp);
-const io = require('socket.io')(http);
+//const http = require('http').Server(backendApp);
+const io = require('socket.io').listen(backendApp);
 const path = require('path');
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 const cors = require('cors');
@@ -35,17 +35,16 @@ const Message = mongoose.model('Message', {
 const dbUrl = 'mongodb://localhost:27017/local'; // setup mongo db
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
-    io.emit('mongodbconnected');
     if (err) {
         console.log('MongoDB Error: ', err);
     }
+}).then(() => {});
+
+io.sockets.on('connection', () => {
+    io.sockets.emit('userconnected');
 });
 
-io.on('connection', () => {
-    io.emit('userconnected');
-});
-
-backendApp.post('/msg', cors(corsOptions), (req, res) => {
+backendApp.listen().post('/msg', cors(corsOptions), (req, res) => {
     try {
         const message = new Message(req.body);
         console.log('Msg: ' + message);
@@ -65,7 +64,7 @@ backendApp.post('/msg', cors(corsOptions), (req, res) => {
     }
 });
 
-backendApp.get('/messages/:user', cors(corsOptions), (req, res) => {
+backendApp.listen().get('/messages/:user', cors(corsOptions), (req, res) => {
     const user = req.params.user;
     Message.find({ name: user }, (err, messages) => {
         res.send(messages);
@@ -75,7 +74,7 @@ backendApp.get('/messages/:user', cors(corsOptions), (req, res) => {
     });
 });
 
-backendApp.get('/call', cors(corsOptions), (req, res) => {
+backendApp.listen().get('/call', cors(corsOptions), (req, res) => {
     const msgID = req.query.id;
     Message.find({ id: msgID }, (err, messages) => {
         res.send(messages);
@@ -85,11 +84,11 @@ backendApp.get('/call', cors(corsOptions), (req, res) => {
     });
 });
 
-backendApp.get('/ping', cors(corsOptions), (req, res) => {
+backendApp.listen().get('/ping', cors(corsOptions), (req, res) => {
     res.sendStatus(200);
 });
 
-backendApp.get('/', cors(corsOptions), (req, res) => {
+backendApp.listen().get('/', cors(corsOptions), (req, res) => {
     const pathToIndex = path.join(__dirname, '/public/', 'index.html');
     res.sendFile(pathToIndex);
 });
@@ -100,8 +99,3 @@ const backendServer = backendRoute.listen(8070, () => {
     const port = backendServer.address().port;
     console.log('backend listening on host: ' + host + ' port no: ' + port);
 });
-
-
-/*********************************************
- *  Other internal functions
- */
