@@ -27,12 +27,15 @@ web.post('/webUpdate', (req, res) => {
 
       if (req) {
           doUpdate();
+          res.status(200).send();
+      } else {
+          res.status(400).send('No payload, server not updated!');
       }
-      res.status(200).send();
+
 
   } catch (ex) {
     console.log(ex.toString());
-    res.status(500).send("Server not updated!");
+    res.status(500).send('Server not updated!');
   }
 });
 
