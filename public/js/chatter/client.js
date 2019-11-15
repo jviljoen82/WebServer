@@ -26,8 +26,10 @@ socket.on('message', () => {
 
 function addMessages(message) {
   $('#messages').append(`
-    <h4> ${message.name} </h4>
-    <p>  ${message.message} </p>`);
+    <div row>
+      <h4> ${message.name} </h4>
+      <p>  ${message.message} </p>
+    </div>`);
 }
 
 function getMessages() {
