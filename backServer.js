@@ -44,6 +44,10 @@ io.sockets.on('connection', () => {
     io.sockets.emit('userconnected');
 });
 
+io.sockets.on('message', () => {
+    console.log('Message emitted from client');
+});
+
 backendApp.post('/msg', cors(corsOptions), (req, res) => {
     try {
         const message = new Message(req.body);
