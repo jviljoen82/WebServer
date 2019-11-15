@@ -25,9 +25,8 @@
 }
 
 .sidePanel {
-    top:15%;
-    left: 75%;
     height: 600px;
+    width: 600px;
 }
 
 .mainBodyKeepLeft {
