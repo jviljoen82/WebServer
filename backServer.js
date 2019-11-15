@@ -55,7 +55,7 @@ backendApp.post('/msg', cors(corsOptions), (req, res) => {
                 console.log(err);
             }
         });
-        console.log(savedMessage);
+        if (savedMessage) console.log(savedMessage);
     } catch (error) {
         res.sendStatus(500);
         return console.log('post error:' + error);
