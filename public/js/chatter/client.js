@@ -3,7 +3,7 @@ const socket = io.connect('http://zumisworld.ga:8080');
 const chatServerUrl = 'http://zumisworld.ga:8070'
 
 window.addEventListener('load', (ev) => {
-  getMessages().then(autoScroll);
+  if (getMessages()) autoScroll();
 });
 
 function autoScroll() {
@@ -20,7 +20,7 @@ document.getElementById('send').addEventListener('click', () => {
 });
 
 socket.on('message', () => {
-  latestMsg().then(autoScroll);
+  if (getMessages()) autoScroll();
 });
 
 function addMessages(message) {
