@@ -2,23 +2,21 @@ const msgDiv = document.getElementById('messages');
 const socket = io.connect('http://zumisworld.ga:8080');
 const chatServerUrl = 'http://zumisworld.ga:8070'
 
-$(window).on('load', () => {
-  getMessages().then(autoScroll);  
+window.addEventListener('load', (ev) => {
+  getMessages().then(autoScroll);
 });
 
 function autoScroll() {
   msgDiv.scrollTop = msgDiv.scrollHeight;
 }
 
-$(() => {
-  $('#send').click(() => {
-    sendMessage({
-      id: 999,
-      name: $('#name').val(),
-      message: $('#message').val()
-    });
-    $('#message').empty();
+document.getElementById('send').addEventListener('click', () => {
+  sendMessage({
+    id: 999,
+    name: document.getElementById('name').value,
+    message: document.getElementById('message').value
   });
+  document.getElementById('message').value = '';
 });
 
 socket.on('message', () => {
@@ -26,17 +24,17 @@ socket.on('message', () => {
 });
 
 function addMessages(message) {
-  $('#messages').append(`
+  document.getElementById('messages').innerHTML += `
     <div class="col-md-12">    
       <h4> ${message.name} </h4>
       <p>  ${message.message} </p>
     </div>
-    `);
+    `;
 }
 
-function getMessages() {
-  const sync = $.Deferred();
-  $('#messages').empty();
+async function getMessages() {
+  await sleep(1500);
+  document.getElementById('messages').innerHTML = '';
   $.ajax({
     type: 'GET',
     url: chatServerUrl+'/call',
@@ -48,14 +46,10 @@ function getMessages() {
       data.forEach(addMessages);
     }
   });
-  setTimeout(() => {
-    sync.resolve();
-  }, 1500);
-  return sync;
 }
 
-function latestMsg() {
-  const sync = $.Deferred();
+async function latestMsg() {
+  await sleep(1500);
   $.ajax({
     type: 'GET',
     url: chatServerUrl+'/call',
@@ -68,10 +62,6 @@ function latestMsg() {
       addMessages(lastMsg);
     }
   });
-  setTimeout(() => {
-    sync.resolve();
-  }, 1500);
-  return sync;
 }
 
 function sendMessage(message) {
@@ -84,4 +74,10 @@ function sendMessage(message) {
     data: message,
     success: () => {}
   });
+}
+
+function sleep(ms){
+  return new Promise(resolve=>{
+    setTimeout(resolve,ms)
+  })
 }
