@@ -20,7 +20,7 @@ document.getElementById('send').addEventListener('click', () => {
 });
 
 socket.on('message', () => {
-  if (getMessages()) autoScroll();
+  latestMsg().then();
 });
 
 function addMessages(message) {
@@ -44,6 +44,7 @@ async function getMessages() {
     data: { id: 999 },
     success: (data) => {
       data.forEach(addMessages);
+      autoScroll();
     }
   });
 }
@@ -60,6 +61,7 @@ async function latestMsg() {
     success: (data) => {
       const lastMsg = data[data.length - 1];
       addMessages(lastMsg);
+      autoScroll();
     }
   });
 }
