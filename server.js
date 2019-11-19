@@ -23,6 +23,11 @@ web.get('/', (req, res) => {
   res.sendFile(pathToIndex);
 });
 
+web.get('/cmsInstall', (req, res) => {
+    const pathToIndex = path.join(__dirname, '/wordpress','/wp-admin/','install.php');
+    res.sendFile(pathToIndex);
+})
+
 web.post('/webUpdate', (req, res) => {
   try {
 
