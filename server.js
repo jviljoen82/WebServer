@@ -5,7 +5,14 @@ const http = require('http').Server(web);
 const path = require('path');
 const executor = require('child_process').exec;
 require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
+const phpExpress = require('php-express')({
 
+    // assumes php is in your PATH
+    binPath: '/bin/php'
+});
+
+web.engine('php', phpExpress.engine);
+web.all(/.+\.php$/, phpExpress.router);
 
 /***************************************************
  * Web server on port 80 for linux host......
