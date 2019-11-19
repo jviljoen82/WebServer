@@ -1,9 +1,10 @@
 const msgDiv = document.getElementById('messages');
 const socket = io.connect('http://zumisworld.ga:8080');
+const localsockets = io.connect('http://localhost:8080');
 const chatServerUrl = 'http://zumisworld.ga:8070'
 
 window.addEventListener('load', (ev) => {
-  if (getMessages()) autoScroll();
+  getMessages().then();
 });
 
 function autoScroll() {
@@ -20,6 +21,10 @@ document.getElementById('send').addEventListener('click', () => {
 });
 
 socket.on('message', () => {
+  latestMsg().then();
+});
+
+localsockets.on('message', () => {
   latestMsg().then();
 });
 
@@ -45,6 +50,22 @@ async function getMessages() {
     success: (data) => {
       data.forEach(addMessages);
       autoScroll();
+    },
+    error: (error) => {
+      console.log('server error: ', error);
+      console.log('using local db');
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8070/call',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        data: {id: 999},
+        success: (data) => {
+          data.forEach(addMessages);
+          autoScroll();
+        }
+      })
     }
   });
 }
@@ -62,6 +83,23 @@ async function latestMsg() {
       const lastMsg = data[data.length - 1];
       addMessages(lastMsg);
       autoScroll();
+    },
+    error: (error) => {
+      console.log('server error: ', error);
+      console.log('using local db');
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8070/call',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        data: { id: 999 },
+        success: (data) => {
+          const lastMsg = data[data.length - 1];
+          addMessages(lastMsg);
+          autoScroll();
+        }
+      })
     }
   });
 }
@@ -74,7 +112,20 @@ function sendMessage(message) {
       'Access-Control-Allow-Origin': '*'
     },
     data: message,
-    success: () => {}
+    success: () => {},
+    error: (error) => {
+      console.log('server error: ', error);
+      console.log('using local db');
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8070/msg',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        data: message,
+        success: () => {}
+      })
+    }
   });
 }
 
