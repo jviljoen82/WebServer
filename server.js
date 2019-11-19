@@ -23,11 +23,6 @@ web.get('/', (req, res) => {
   res.sendFile(pathToIndex);
 });
 
-web.get('/content', (req, res) => {
-    const pathToIndex = path.join(__dirname, '/wordpress/');
-    res.sendFile(pathToIndex);
-})
-
 web.post('/webUpdate', (req, res) => {
   try {
 
