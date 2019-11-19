@@ -1,7 +1,8 @@
 const msgDiv = document.getElementById('messages');
 const socket = io.connect('http://zumisworld.ga:8080');
 const localsockets = io.connect('http://localhost:8080');
-const chatServerUrl = 'http://zumisworld.ga:8070'
+const chatServerUrl = 'http://zumisworld.ga:8070';
+const waitValue = 500;
 
 window.addEventListener('load', (ev) => {
   getMessages().then();
@@ -38,7 +39,7 @@ function addMessages(message) {
 }
 
 async function getMessages() {
-  await sleep(1500);
+  await sleep(waitValue);
   document.getElementById('messages').innerHTML = '';
   $.ajax({
     type: 'GET',
@@ -71,7 +72,7 @@ async function getMessages() {
 }
 
 async function latestMsg() {
-  await sleep(1500);
+  await sleep(waitValue);
   $.ajax({
     type: 'GET',
     url: chatServerUrl+'/call',
