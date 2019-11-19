@@ -22,6 +22,10 @@ web.get('/', (req, res) => {
   res.sendFile(pathToIndex);
 });
 
+web.get('/cmsContent',(re, res) => {
+    res.redirect('http://localhost:8000');
+});
+
 web.post('/webUpdate', (req, res) => {
   try {
 
