@@ -24,7 +24,7 @@ web.get('/', (req, res) => {
 });
 
 web.get('/content', (req, res) => {
-    const pathToIndex = path.join(__dirname, '/wordpress/', 'index.php');
+    const pathToIndex = path.join(__dirname, '/wordpress/');
     res.sendFile(pathToIndex);
 })
 
