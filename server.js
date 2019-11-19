@@ -12,6 +12,7 @@ require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create(
  */
 web.use(express.static('public'));
 web.use(express.static('data'));
+web.use(express.static('wordpress'));
 web.use(bodyParser.json());
 web.use(bodyParser.urlencoded({
   extended: false
@@ -21,6 +22,11 @@ web.get('/', (req, res) => {
   const pathToIndex = path.join(__dirname, '/public/', 'index.html');
   res.sendFile(pathToIndex);
 });
+
+web.get('/content', (req, res) => {
+    const pathToIndex = path.join(__dirname, '/wordpress/', 'index.php');
+    res.sendFile(pathToIndex);
+})
 
 web.post('/webUpdate', (req, res) => {
   try {
