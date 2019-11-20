@@ -1,5 +1,10 @@
 @import 'angular-material.min.css';
 
+body {
+    width: 1024px;
+    height: 768px;
+}
+
 .menuTop {
     background-color: #4682B4;
 }
