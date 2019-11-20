@@ -19,7 +19,7 @@ body {
 
 .chatback {
     background-color: #000000;
-    height: 800px;
+    height: 600px;
 }
 
 .chatwindow {
@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-    height: 790px;
+    height: 758px;
 }
 
 .sidePanel {
