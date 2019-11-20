@@ -20,7 +20,7 @@ body {
 .chatback {
     background-color: #000000;
     height: 600px;
-    width: 550px;
+    width: 560px;
 }
 
 .chatwindow {
@@ -31,12 +31,12 @@ body {
 }
 
 .container {
-    height: 758px;
+    height: 590px;
 }
 
 .sidePanel {
-    height: 800px;
-    width: 600px;
+    height: 600px;
+    width: 560px;
 }
 
 .mainBodyKeepLeft {
