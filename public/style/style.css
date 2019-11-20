@@ -49,3 +49,7 @@
     font-weight: bold;
     color: #EE0000;
 }
+
+.noBorder {
+    border-style: hidden;
+}
