@@ -1,9 +1,5 @@
 @import 'angular-material.min.css';
 
-iframe {
-
-}
-
 .menuTop {
     background-color: #4682B4;
 }
@@ -55,5 +51,7 @@ iframe {
 }
 
 .noBorder {
+    height: 100%;
+    width: 100%;
     border-style: hidden;
 }
