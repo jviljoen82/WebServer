@@ -58,8 +58,10 @@
 
 .leftAddPanel {
     width: 100px;
+    height: 100%;
 }
 
 .rightAddPanel {
     width: 100px;
+    height: 100%;
 }
