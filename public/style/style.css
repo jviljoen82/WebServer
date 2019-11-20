@@ -1,5 +1,9 @@
 @import 'angular-material.min.css';
 
+iframe {
+
+}
+
 .menuTop {
     background-color: #4682B4;
 }
