@@ -55,3 +55,11 @@
     width: 100%;
     border-style: hidden;
 }
+
+.leftAddPanel {
+    width: 100px;
+}
+
+.rightAddPanel {
+    width: 100px;
+}
