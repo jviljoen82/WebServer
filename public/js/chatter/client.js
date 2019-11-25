@@ -35,7 +35,7 @@ function addMessages(message) {
       <h4> ${message.name} </h4>
       <p>  ${message.message} </p>
     </div>
-    `;
+  `;
 }
 
 async function getMessages() {
@@ -131,7 +131,7 @@ function sendMessage(message) {
 }
 
 function sleep(ms){
-  return new Promise(resolve=>{
+  return new Promise(resolve => {
     setTimeout(resolve,ms)
   })
 }
