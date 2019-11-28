@@ -26,7 +26,7 @@ web.get('/cmsContent',(re, res) => {
     res.redirect('http://localhost:8000');
 });
 
-web.get('/zippy', (req, res) => {
+web.get('/phase2', (req, res) => {
     const zipFile = path.join(__dirname, '/data/','phase2.zip')
     res.sendFile(zipFile);
 });
