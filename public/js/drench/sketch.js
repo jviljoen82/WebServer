@@ -19,13 +19,6 @@ let clicksLeft = setClicks;
 let score = 0;
 
 
-function getLogin() {
-  let passcheck = prompt('Enter the password: ', '');
-  if (passcheck === 'testIcle') console.log('password correct...continue');
-  else getLogin();
-}
-
-
 function make2DArray(gridSize) {
   let arr = new Array(gridSize);
   for (let i = 0; i < arr.length; i++) {

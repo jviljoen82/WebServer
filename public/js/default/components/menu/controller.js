@@ -5,7 +5,10 @@ class MenuCtrl {
 
     LaunchDrench() {
         console.log('Drench game launch');
-        document.getElementById('drenchDialogContainer').dispatchEvent(new Event('click'));
+        let passwordCheck = prompt('Enter the password: ','');
+        if (passwordCheck === 'testIcle')
+            document.getElementById('drenchDialogContainer').dispatchEvent(new Event('click'));
+        else console.log('WRONG');
     }
 
     DownloadDialog() {
