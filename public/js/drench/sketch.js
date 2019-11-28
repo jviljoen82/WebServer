@@ -17,7 +17,7 @@ const resetBtn = new Clickable();
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 let clicksLeft = setClicks;
 let score = 0;
-let xmasMsg = '';
+let xmasMsg = 'JO HAS TO SEND THE MSG DETAILS!';
 
 
 function make2DArray(gridSize) {
