@@ -4,7 +4,6 @@ const rimraf = require('rimraf');
 const gulpTemplateCache = require('gulp-angular-templatecache');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpBabel = require('gulp-babel');
-const gulpUglify = require('gulp-uglify');
 const Path = require('path');
 const SOURCE_ROOT = Path.resolve('.', 'public/js');
 const DEPLOY_PATH = Path.resolve(SOURCE_ROOT, 'dist');
@@ -44,7 +43,6 @@ function build(callback) {
         }))
         .pipe(concat('AppUI.js'))
         .pipe(gulpSourcemaps.write('.'))
-        .pipe(gulpUglify())
         .pipe(dest(`${DEPLOY_PATH}`))
         .on('end', callback);
 }
