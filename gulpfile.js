@@ -34,6 +34,7 @@ function templates(callback) {
 function build(callback) {
     src(`${SOURCE_ROOT}/default/**/*.js`)
         .pipe(src(`${SOURCE_ROOT}/dist/AppUI.tpl.js`))
+        .pipe(gulpSourcemaps.init())
         .pipe(gulpBabel({
             presets: ['@babel/env'],
             plugins: [
@@ -42,6 +43,7 @@ function build(callback) {
             ]
         }))
         .pipe(concat('AppUI.js'))
+        .pipe(gulpSourcemaps.write('.'))
         .pipe(gulpUglify())
         .pipe(dest(`${DEPLOY_PATH}`))
         .on('end', callback);
