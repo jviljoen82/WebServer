@@ -17,6 +17,7 @@ const resetBtn = new Clickable();
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 let clicksLeft = setClicks;
 let score = 0;
+let xmasMsg = '';
 
 
 function make2DArray(gridSize) {
@@ -28,8 +29,8 @@ function make2DArray(gridSize) {
 }
 
 function showScore() {
-	const scoreString = 'Your score: ' + score;
-	fill('#1199FF');
+  const scoreString = 'Your score: ' + score;
+  fill('#1199FF');
   textStyle(BOLD);
   textSize(15);
   textAlign(CENTER);
@@ -249,6 +250,7 @@ function colorChange(toColor) {
     if (checkWin()) {
       score += clicksLeft * 10;
       alert("Great, You Won! New round?");
+      if (score >= 100) console.log(xmasMsg);
       newGame();
     }
     clickAmount();
