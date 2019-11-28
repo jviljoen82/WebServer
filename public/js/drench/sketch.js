@@ -284,7 +284,7 @@ function newGame() {
 
 // button1
 Button1.onPress = function () {
-  console.log("button 1 pressed");
+  // do nothing
 };
 Button1.onRelease = function () {
   colorChange(0);
@@ -292,7 +292,7 @@ Button1.onRelease = function () {
 
 // button2
 Button2.onPress = function () {
-  console.log("button 2 pressed");
+  // do nothing
 };
 Button2.onRelease = function () {
   colorChange(1);
@@ -300,7 +300,7 @@ Button2.onRelease = function () {
 
 // button3
 Button3.onPress = function () {
-  console.log("button 3 pressed");
+  // do nothing
 };
 Button3.onRelease = function () {
   colorChange(2);
@@ -308,7 +308,7 @@ Button3.onRelease = function () {
 
 // button4
 Button4.onPress = function () {
-  console.log("button 4 pressed");
+  // do nothing
 };
 Button4.onRelease = function () {
   colorChange(3);
@@ -316,7 +316,7 @@ Button4.onRelease = function () {
 
 // button5
 Button5.onPress = function () {
-  console.log("button 5 pressed");
+  // do nothing
 };
 Button5.onRelease = function () {
   colorChange(4);
@@ -324,7 +324,7 @@ Button5.onRelease = function () {
 
 // button6
 Button6.onPress = function () {
-  console.log("button 6 pressed");
+  // do nothing
 };
 Button6.onRelease = function () {
   colorChange(5);
@@ -332,7 +332,7 @@ Button6.onRelease = function () {
 
 // reset button
 resetBtn.onPress = function () {
-  console.log("RESET!");
+  // do nothing
 };
 resetBtn.onRelease = function () {
   score = 0;
