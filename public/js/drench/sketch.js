@@ -271,8 +271,6 @@ function colorChange(toColor) {
 
 function clickAmount() {
     clicksLeft -= 1;
-    console.log(clicksLeft);
-
     if(clicksLeft === 0) {
         alert('Game Over!');
         score = 0;
