@@ -1,6 +1,5 @@
 const msgDiv = document.getElementById('messages');
 const socket = io.connect('http://zumisworld.ga:8080');
-const localsockets = io.connect('http://localhost:8080');
 const chatServerUrl = 'http://zumisworld.ga:8070';
 const waitValue = 500;
 
@@ -22,10 +21,6 @@ document.getElementById('send').addEventListener('click', () => {
 });
 
 socket.on('message', () => {
-  latestMsg().then();
-});
-
-localsockets.on('message', () => {
   latestMsg().then();
 });
 
