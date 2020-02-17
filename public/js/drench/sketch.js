@@ -17,16 +17,6 @@ const resetBtn = new Clickable();
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 let clicksLeft = setClicks;
 let score = 0;
-let xmasMsg = 'Yaaaargh! Wasn\'t that fun? You\'ve found yer treasure - and it turns out ye\'v been having the treasure all along: fun! Awww!\n' +
-    '\n' +
-    'Yer welcome P-)\n' +
-    'Just kidding. Here\'s some real fucking booty - none of that hippy touchy-feely crap. Enjoy. \n' +
-    '\n' +
-    'Takealot 1: \n' +
-    'T2NFL-PYFYR-B3HUL-8TBGB\n' +
-    '\n' +
-    'Takealot 2:\n' +
-    'T2YAC-32JFP-D4BAV-8U5LH';
 
 
 function make2DArray(gridSize) {
@@ -259,7 +249,6 @@ function colorChange(toColor) {
         if (checkWin()) {
             score += clicksLeft * 10;
             alert("Great, You Won! New round?");
-            if (score >= 100) console.log(xmasMsg);
             newGame();
         }
         clickAmount();
