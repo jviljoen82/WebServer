@@ -13,7 +13,7 @@ class AppCtrl {
                             <md-dialog-content>
                                 <md-input-container>
                                       <label>NAME</label>
-                                      <input type="text" ng-model="{userCreds.name}" required="" md-maxlength="10">
+                                      <input type="text" ng-model="inputName" required="" md-maxlength="10">
                                 </md-input-container>
                             </md-dialog-content>
                             <md-dialog-actions>
@@ -25,6 +25,7 @@ class AppCtrl {
 
     closeDialog() {
         this.mdDialog.hide();
+        userCreds.name = this.scope.inputName;
     }
 }
 
