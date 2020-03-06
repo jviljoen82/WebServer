@@ -27,7 +27,6 @@ class AppCtrl {
     closeDialog() {
         this.mdDialog.hide();
         this.user.name = this.scope.inputName;
-        this.user.name = this.scope.inputName;
     }
 }
 
