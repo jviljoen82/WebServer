@@ -6,7 +6,9 @@ class AppCtrl {
     }
 
     $onInit() {
-        this.window.prompt('Username: ', userCreds.name);
+        this.scope = () => {
+            this.window.prompt('Username: ', userCreds.name);
+        }
     }
 }
 
