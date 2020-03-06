@@ -19,7 +19,7 @@
       <div class="jumbotron row">
         <h4>Send Message</h4>
         <br>
-        <input id = "name" class="form-control" placeholder="Name" value="{{::userCreds.name}}">
+        <input id = "name" class="form-control" placeholder="Name" ng-value="userCreds.name" readonly >
         <br>
         <textarea id = "message" class="form-control" placeholder="Your Message Here"></textarea>
         <br>
