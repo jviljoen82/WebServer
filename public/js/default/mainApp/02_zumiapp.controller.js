@@ -2,13 +2,14 @@ class AppCtrl {
     constructor($scope, $window) {
         this.scope = $scope;
         this.window = $window;
-
+        this.scope = (getName) => {
+            this.window.prompt('Username: ', getName);
+            userCreds.name = getName;
+        }
     }
 
     $onInit() {
-        this.scope = () => {
-            this.window.prompt('Username: ', userCreds.name);
-        }
+
     }
 }
 
