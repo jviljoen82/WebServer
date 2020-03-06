@@ -3,7 +3,7 @@ const socket = io.connect('http://zumisworld.ga:8080');
 const chatServerUrl = 'http://zumisworld.ga:8070';
 const waitValue = 500;
 
-window.addEventListener('load', (ev) => {
+window.addEventListener('load', (ev, userCreds) => {
   document.getElementById('name').value = userCreds.name;
   getMessages().then();
 });
