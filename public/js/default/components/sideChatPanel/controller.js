@@ -6,8 +6,7 @@ class ChatPanel {
     }
 
     showChatPanel() {
-        let chatFrame = window.frames['chatFrame'];
-        chatFrame.setName(this.user.name);
+
         console.log("Chat Panel Open");
         this.mdDialog.show ({
             clickOutsideToClose: false,
@@ -22,6 +21,9 @@ class ChatPanel {
                             </md-dialog-actions>
                         </md-dialog>`
         });
+        console.log("username: " + this.user.name);
+        let chatFrame = window.frames['chatFrame'];
+        chatFrame.setName(this.user.name);
     }
 
     closeDialog() {

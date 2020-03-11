@@ -8,6 +8,7 @@ window.addEventListener('load', (ev) => {
 });
 
 function setName(username) {
+  console.log("Setting username: " + username);
   document.getElementById('name').value = username;
 }
 
