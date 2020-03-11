@@ -4,9 +4,12 @@ const chatServerUrl = 'http://zumisworld.ga:8070';
 const waitValue = 500;
 
 window.addEventListener('load', (ev) => {
-  document.getElementById('name').value = window.parent.userCreds.name;
   getMessages().then();
 });
+
+function setName(username) {
+  document.getElementById('name').value = username;
+}
 
 function autoScroll() {
   msgDiv.scrollTop = msgDiv.scrollHeight;
