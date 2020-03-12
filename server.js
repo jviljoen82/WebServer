@@ -66,9 +66,6 @@ async function doUpdate() {
     await sleep(5000);
     console.log('Pulling updated Data');
     const gitPull = executor('git pull');
-    gitPull.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-    });
     await sleep(5000);
     console.log('Rebuilding Front-end');
     const gulper = executor('npm run gulp');
