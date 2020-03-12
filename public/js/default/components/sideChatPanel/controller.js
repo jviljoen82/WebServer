@@ -12,7 +12,7 @@ class ChatPanel {
             preserveScope: true,
             template: `<md-dialog aria-label="Download dialog">
                             <md-dialog-content>
-                                <iframe id="chatFrame" sandbox="allow-same-origin" class="sidePanel" src="../../../../chat.html"></iframe>
+                                <iframe id="chatFrame" sandbox="allow-same-origin allow-scripts" class="sidePanel" src="../../../../chat.html"></iframe>
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
