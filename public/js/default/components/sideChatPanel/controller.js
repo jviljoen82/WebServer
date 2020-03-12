@@ -16,13 +16,8 @@ class ChatPanel {
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
-                                <md-button id="updateData" ng-click="$chatCtrl.setupData()" class="hiddenBtn"></md-button>
+                                <md-button ng-click="$chatCtrl.setupData()">Login</md-button>
                             </md-dialog-actions>
-                            <script>
-                                $("document").ready(() => {
-                                    $("updateData").trigger("click");
-                                })
-                            </script>
                         </md-dialog>`
         });
     }

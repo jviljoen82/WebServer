@@ -7,22 +7,19 @@ window.addEventListener('load', (ev) => {
   getMessages().then();
 });
 
-function setName(username) {
-  console.log("Setting username: " + username);
-  document.getElementById('name').value = username;
-}
-
 function autoScroll() {
   msgDiv.scrollTop = msgDiv.scrollHeight;
 }
 
 document.getElementById('send').addEventListener('click', () => {
-  sendMessage({
-    id: 999,
-    name: document.getElementById('name').value,
-    message: document.getElementById('message').value
-  });
-  document.getElementById('message').value = '';
+  if (document.getElementById('name').value != null || document.getElementById('name').value !== '') {
+    sendMessage({
+      id: 999,
+      name: document.getElementById('name').value,
+      message: document.getElementById('message').value
+    });
+    document.getElementById('message').value = '';
+  }
 });
 
 socket.on('message', () => {
