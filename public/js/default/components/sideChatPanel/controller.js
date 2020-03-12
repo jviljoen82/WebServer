@@ -80,8 +80,8 @@ class ChatPanel {
       `;
     }
 
-    async getMessages() {
-        await sleep(this.waitValue);
+    getMessages() {
+        let waiter = async() => {await sleep(this.waitValue)};
         document.getElementById('messages').innerHTML = '';
         $.ajax({
             type: 'GET',
@@ -113,8 +113,8 @@ class ChatPanel {
         });
     }
 
-    async latestMsg() {
-        await this.sleep(this.waitValue);
+    latestMsg() {
+        let waiter = async() => {await this.sleep(this.waitValue)};
         $.ajax({
             type: 'GET',
             url: this.chatServerUrl+'/call',
