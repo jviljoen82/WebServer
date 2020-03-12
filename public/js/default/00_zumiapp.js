@@ -1,4 +1,4 @@
-import regeneratorRuntime from 'babel-polyfill';
+import regeneratorRuntime from '../../../node_modules/regenerator-runtime';
 
 const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages', 'regeneratorRuntime'])
     .config(($mdThemingProvider) => {
