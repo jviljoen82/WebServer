@@ -12,13 +12,17 @@ class ChatPanel {
             preserveScope: true,
             template: `<md-dialog aria-label="Download dialog">
                             <md-dialog-content>
-                                <iframe class="sidePanel" sandbox="allow-same-origin allow-scripts" src="../../../../chat.html"></iframe>
+                                <iframe id="chatFrame" class="sidePanel" sandbox="allow-same-origin allow-scripts" src="../../../../chat.html"></iframe>
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
                             </md-dialog-actions>
                         </md-dialog>`
         });
+        let iframeChat = document.getElementById('chatFrame');
+        let iframeDoc = iframeChat.contentDocument;
+        let userNameControl = iframeDoc.getElementById('name');
+        userNameControl.value = this.user.name;
     }
 
     closeDialog() {
