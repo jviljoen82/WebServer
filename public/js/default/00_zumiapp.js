@@ -1,4 +1,4 @@
-const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages', 'babel-polyfill'])
+const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages', 'regeneratorRuntime'])
     .config(($mdThemingProvider) => {
         $mdThemingProvider.theme('default').dark();
     });
