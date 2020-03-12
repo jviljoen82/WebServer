@@ -4,6 +4,7 @@ const chatServerUrl = 'http://zumisworld.ga:8070';
 const waitValue = 500;
 
 window.addEventListener('load', (ev) => {
+  setName(userCreds.name);
   getMessages().then();
 });
 
