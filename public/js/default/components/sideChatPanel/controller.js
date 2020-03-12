@@ -17,12 +17,13 @@ class ChatPanel {
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
                             </md-dialog-actions>
-                        </md-dialog>`
-        }).then( () => {
-            let iframeChat = document.getElementById('chatFrame');
-            let iframeDoc = iframeChat.contentDocument;
-            let userNameControl = iframeDoc.getElementById('name');
-            userNameControl.value = this.user.name;
+                        </md-dialog>`,
+            controller: () => {
+                let iframeChat = document.getElementById('chatFrame');
+                let iframeDoc = iframeChat.contentDocument;
+                let userNameControl = iframeDoc.getElementById('name');
+                userNameControl.value = this.user.name;
+            }
         });
     }
 
