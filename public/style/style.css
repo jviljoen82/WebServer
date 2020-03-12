@@ -41,6 +41,7 @@ body {
     float:left;
     overflow-y: auto;
     height: 400px;
+    width: 560px;
 }
 
 .container {
