@@ -5,7 +5,6 @@ class DrenchCtrl {
     }
 
     showDrenchGame() {
-        console.log("Hello Dranch Game");
         this.mdDialog.show ({
             clickOutsideToClose: false,
             scope: this.scope,
