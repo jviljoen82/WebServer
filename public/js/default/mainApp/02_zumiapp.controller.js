@@ -12,12 +12,14 @@ class AppCtrl {
             preserveScope: true,
             template: `<md-dialog aria-label="Login">
                             <h2 class="md-title ng-binding">Let's Login</h2>
+                            <br>
                             <md-dialog-content>
                                 <md-input-container>
                                       <label>NAME</label>
                                       <input type="text" ng-model="inputName" required="" md-maxlength="10">
                                 </md-input-container>
                             </md-dialog-content>
+                            <br>
                             <md-dialog-actions>
                                 <md-button ng-click="$appCtrl.closeDialog()" class="md-button">OK</md-button>
                             </md-dialog-actions>
