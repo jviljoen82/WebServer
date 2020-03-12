@@ -11,7 +11,7 @@ class ChatPanel {
             scope: this.scope,
             preserveScope: true,
             stack: true,
-            template: `<md-dialog aria-label="Download dialog">
+            template: `<md-dialog aria-label="Chat Dialog">
                             <md-dialog-content>
                                 <iframe id="chatFrame" sandbox="allow-same-origin allow-scripts" class="sidePanel" src="../../../../chat.html"></iframe>
                             </md-dialog-content>
