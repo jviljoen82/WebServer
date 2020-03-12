@@ -16,7 +16,7 @@ class ChatPanel {
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
-                                <md-button aria-label="setupBtn" ng-click="$chatCtrl.setupData()">Login</md-button>
+                                <md-button aria-label="setupBtn" id="setupBtn" ng-click="$chatCtrl.setupData()">Login</md-button>
                             </md-dialog-actions>
                         </md-dialog>`
         });

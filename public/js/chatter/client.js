@@ -4,8 +4,8 @@ const chatServerUrl = 'http://zumisworld.ga:8070';
 const waitValue = 500;
 
 window.addEventListener('load', (ev) => {
-  if (document.getElementById('name').value == null || document.getElementById('name').value === 'undefined') {
-    document.getElementById('send').disabled =true;
+  if (document.getElementById('name').value == null || document.getElementById('name').value === 'undefined' || document.getElementById('name').value === '') {
+    document.getElementById('send').disabled = true;
   }
   getMessages().then();
 });
