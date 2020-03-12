@@ -40,8 +40,8 @@ class ChatPanel {
                             </md-dialog-actions>
                         </md-dialog>`
         });
-        this.getMessages().then();
         this.constructor.setName(this.user.name);
+        this.getMessages().then();
     }
 
     closeDialog() {
