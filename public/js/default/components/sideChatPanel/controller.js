@@ -12,7 +12,7 @@ class ChatPanel {
             preserveScope: true,
             stack: true,
             template: `<md-dialog aria-label="Chat Dialog">
-                            <h2 class="md-title ng-binding">Let's chat</h2>
+                            <h2 class="md-title ng-binding centerText">Let's chat</h2>
                             <br>
                             <md-dialog-content>
                                 <iframe id="chatFrame" sandbox="allow-same-origin allow-scripts" class="sidePanel" src="../../../../chat.html"></iframe>

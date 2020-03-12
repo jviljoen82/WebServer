@@ -11,7 +11,7 @@ class AppCtrl {
             scope: this.scope,
             preserveScope: true,
             template: `<md-dialog aria-label="Login">
-                            <h2 class="md-title ng-binding">Let's Login</h2>
+                            <h2 class="md-title ng-binding centerText">Let's Login</h2>
                             <br>
                             <md-dialog-content>
                                 <md-input-container>
