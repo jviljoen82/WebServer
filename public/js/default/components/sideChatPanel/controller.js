@@ -81,7 +81,7 @@ class ChatPanel {
     }
 
     getMessages() {
-        let waiter = async() => {await sleep(this.waitValue)};
+        //let waiter = async() => {await sleep(this.waitValue)};
         document.getElementById('messages').innerHTML = '';
         $.ajax({
             type: 'GET',
@@ -114,7 +114,7 @@ class ChatPanel {
     }
 
     latestMsg() {
-        let waiter = async() => {await this.sleep(this.waitValue)};
+        //let waiter = async() => {await this.sleep(this.waitValue)};
         $.ajax({
             type: 'GET',
             url: this.chatServerUrl+'/call',

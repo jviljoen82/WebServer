@@ -1,6 +1,4 @@
-import regeneratorRuntime from '../../../node_modules/regenerator-runtime';
-
-const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages', 'regeneratorRuntime'])
+const ZumisApp = angular.module('ZumisWorldApp', ['ngMaterial', 'ngMessages'])
     .config(($mdThemingProvider) => {
         $mdThemingProvider.theme('default').dark();
     });
