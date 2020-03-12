@@ -12,18 +12,18 @@ class ChatPanel {
             preserveScope: true,
             template: `<md-dialog aria-label="Download dialog">
                             <md-dialog-content>
-                                <iframe id="chatFrame" class="sidePanel" sandbox="allow-same-origin allow-scripts" src="../../../../chat.html"></iframe>
+                                <iframe id="chatFrame" class="sidePanel" src="../../../../chat.html"></iframe>
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$chatCtrl.closeDialog()" class="md-button">Close</md-button>
-                                <md-button id="updateData" ng-click="$chatCtrl.setupData()"></md-button>
+                                <md-button id="updateData" ng-click="$chatCtrl.setupData()" class="hiddenBtn"></md-button>
                             </md-dialog-actions>
-                        </md-dialog>
-                        <script>
-                            $("document").ready(() => {
-                                $("updateData").trigger("click");
-                            })
-                        </script>`
+                            <script>
+                                $("document").ready(() => {
+                                    $("updateData").trigger("click");
+                                })
+                            </script>
+                        </md-dialog>`
         });
     }
 

@@ -5,6 +5,11 @@ body {
     height: 768px;
 }
 
+.hiddenBtn {
+    width: 0px;
+    height: 0px;
+}
+
 .menuTop {
     background-color: #4682B4;
 }
