@@ -7,7 +7,6 @@ class ChatPanel {
         this.socket = io.connect('http://zumisworld.ga:8080');
         this.chatServerUrl = 'http://zumisworld.ga:8070';
         this.waitValue = 500;
-
     }
 
     $onInit() {
