@@ -6,6 +6,7 @@ class AppCtrl {
     }
 
     $onInit() {
+        /*
         this.mdDialog.show ({
             clickOutsideToClose: false,
             scope: this.scope,
@@ -24,7 +25,7 @@ class AppCtrl {
                                 <md-button ng-click="$appCtrl.closeDialog()" class="md-button">OK</md-button>
                             </md-dialog-actions>
                         </md-dialog>`
-        });
+        }); */
     }
 
     closeDialog() {

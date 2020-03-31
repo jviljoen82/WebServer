@@ -14,8 +14,9 @@ class DownloadCtrl {
                             <md-dialog-content>
                                <H3>Download World of Warcraft - Wrath of the Lich King - v3.3.5a</H3>
                                 <div class="whiteBackground">
+                                    <! --
                                     <a href="../../../../../WoW335aMac.zip">World of Warcraft - Wrath of the Lich King v3.3.5a  (MAC)</a>
-                                    <br>
+                                    <br> -->
                                     <a href="../../../../../WoW335aWin.zip">World of Warcraft - Wrath of the Lich King v3.3.5a  (Win)</a>
                                 </div>
                             </md-dialog-content>
