@@ -29,13 +29,13 @@ body::after {
     overflow-wrap: normal;
     overflow-y: auto;
     display: block;
-    position: absolute;
+    position: relative;
     z-index: 1;
 }
 
 .storyBack::before {
     content: "";
-    background-image: url(http://zumisworld.ga/images/StoryBack.png);
+    background-image: url("../images/StoryBack.png");
     background-repeat: no-repeat;
     opacity: 0.5;
     top: 0;
