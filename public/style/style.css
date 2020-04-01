@@ -1,11 +1,23 @@
 @import 'angular-material.min.css';
 
 body {
-    /*background-image: url("../images/Under-Construction.jpg");
+    width: 1600px;
+    height: 1153px;
+    display: block;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    background-image: url("../images/Under-Construction.jpg");
     background-repeat: no-repeat;
-    background-size: cover;*/
-    width: 1024px;
-    height: 768px;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .storyBack {
@@ -19,7 +31,7 @@ body {
 
 .storyBack::after {
     content: "";
-    background: url(http://zumisworld.ga/images/StoryBack.png) no-repeat;
+    background: url("../images/StoryBack.png") no-repeat;
     opacity: 0.2;
     top: 0;
     left: 0;
