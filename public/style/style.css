@@ -11,10 +11,15 @@ body {
     opacity: 0.2;
     height: 444px;
     width: 710px;
+}
+
+.storyText {
+    opacity: 1;
+    height: 444px;
+    width: 710px;
     overflow-wrap: normal;
     overflow-y: auto;
 }
-
 
 .singleBorder {
     border: #000000 solid 1px;
