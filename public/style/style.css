@@ -25,6 +25,7 @@ body::after {
 .storyBack {
     height: 444px;
     width: 710px;
+    color: #dcdcdc;
     opacity: 1;
     overflow-wrap: normal;
     overflow-y: auto;
