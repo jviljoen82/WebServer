@@ -6,19 +6,27 @@ body {
 }
 
 .storyBack {
-    background-image: url("../images/StoryBack.png");
-    background-repeat: no-repeat;
-    opacity: 0.2;
-    height: 444px;
-    width: 710px;
-}
-
-.storyText {
-    opacity: 1;
     height: 444px;
     width: 710px;
     overflow-wrap: normal;
     overflow-y: auto;
+    display: block;
+    position: relative;
+
+
+}
+
+.storyBack::after {
+    content: "";
+    background-image: url("../images/StoryBack.png");
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .singleBorder {
