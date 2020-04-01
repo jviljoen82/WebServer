@@ -3,12 +3,17 @@
 body {
     width: 1600px;
     height: 1153px;
+}
+
+.mainBack {
+    width: 1600px;
+    height: 1153px;
     display: block;
     position: relative;
     z-index: 1;
 }
 
-body::after {
+.mainBack::after {
     content: "";
     background-image: url("../images/Under-Construction.jpg");
     background-repeat: no-repeat;
@@ -20,11 +25,6 @@ body::after {
     right: 0;
     position: absolute;
     z-index: 0;
-}
-
-
-.noWaterMark {
-    background: none;
 }
 
 .storyBack {
