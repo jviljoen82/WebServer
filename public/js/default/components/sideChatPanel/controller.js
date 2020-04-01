@@ -15,7 +15,7 @@ class ChatPanel {
                             <h2 class="md-title ng-binding centerText">Let's chat</h2>
                             <br>
                             <md-dialog-content>
-                                <iframe id="chatFrame" sandbox="allow-same-origin allow-scripts" class="sidePanel" src="../../../../chat.html"></iframe>
+                                <iframe id="chatFrame" sandbox="allow-same-origin allow-scripts allow-popups" class="sidePanel" src="../../../../chat.html"></iframe>
                             </md-dialog-content>
                             <br>
                             <md-dialog-actions>
