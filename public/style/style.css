@@ -13,6 +13,7 @@ body::after {
     background-image: url("../images/Under-Construction.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.1;
     top: 0;
     left: 0;
     bottom: 0;
@@ -34,7 +35,7 @@ body::after {
 .storyBack::after {
     content: "";
     background: url("../images/StoryBack.png") no-repeat;
-    opacity: 0.2;
+    opacity: 0.5;
     top: 0;
     left: 0;
     bottom: 0;
