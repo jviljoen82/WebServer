@@ -17,7 +17,6 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;
 }
 
 .storyBack {
@@ -38,7 +37,6 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;
 }
 
 .singleBorder {
