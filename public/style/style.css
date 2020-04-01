@@ -3,6 +3,7 @@
 body {
     background-image: url("../images/Under-Construction.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     width: 1024px;
     height: 768px;
 }
