@@ -5,6 +5,7 @@ body {
     height: 1153px;
     display: block;
     position: relative;
+    z-index: auto;
 }
 
 body::after {
@@ -26,6 +27,7 @@ body::after {
     overflow-y: auto;
     display: block;
     position: relative;
+    z-index: auto;
 }
 
 .storyBack::after {
