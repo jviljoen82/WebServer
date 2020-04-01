@@ -1,13 +1,11 @@
 @import 'angular-material.min.css';
 
 body {
+    background-image: url("../images/StoryBack.png");
     width: 1024px;
     height: 768px;
 }
 
-.storyBack {
-    background-image: url('../../../images/StoryBack.png');
-}
 
 .singleBorder {
     border: #000000 solid 1px;
