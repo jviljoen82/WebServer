@@ -25,16 +25,18 @@ body::after {
 .storyBack {
     height: 444px;
     width: 710px;
+    opacity: 1;
     overflow-wrap: normal;
     overflow-y: auto;
     display: block;
-    position: relative;
+    position: absolute;
     z-index: 3;
 }
 
 .storyBack::after {
     content: "";
-    background: url("../images/StoryBack.png") no-repeat;
+    background-image: url(http://zumisworld.ga/images/StoryBack.png);
+    background-repeat: no-repeat;
     opacity: 0.5;
     top: 0;
     left: 0;
