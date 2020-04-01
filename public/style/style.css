@@ -5,7 +5,7 @@ body {
     height: 1153px;
     display: block;
     position: relative;
-    z-index: auto;
+    z-index: 1;
 }
 
 body::after {
@@ -18,6 +18,7 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
+    z-index: 0;
 }
 
 .storyBack {
@@ -27,7 +28,7 @@ body::after {
     overflow-y: auto;
     display: block;
     position: relative;
-    z-index: auto;
+    z-index: 3;
 }
 
 .storyBack::after {
@@ -38,7 +39,7 @@ body::after {
     left: 0;
     bottom: 0;
     right: 0;
-    position: absolute;
+    z-index: 2;
 }
 
 .singleBorder {
