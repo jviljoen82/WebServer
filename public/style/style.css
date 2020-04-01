@@ -8,6 +8,7 @@ body {
 .storyBack {
     background-image: url("../images/StoryBack.png");
     background-repeat: no-repeat;
+    opacity: 0.2;
     height: 444px;
     width: 710px;
     overflow-wrap: normal;
