@@ -30,7 +30,7 @@ body::after {
     overflow-y: auto;
     display: block;
     position: absolute;
-    z-index: 3;
+    z-index: 1;
 }
 
 .storyBack::after {
@@ -43,7 +43,7 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: 2;
+    z-index: 0;
 }
 
 .singleBorder {
