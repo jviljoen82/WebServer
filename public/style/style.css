@@ -32,6 +32,8 @@ body {
     height: 1153px;
     overflow-wrap: normal;
     overflow-y: auto;
+    display: block;
+    position: relative;
 }
 
 .storyBack {
@@ -63,6 +65,8 @@ body {
     width: 710px;
     overflow-wrap: normal;
     overflow-y: auto;
+    display: block;
+    position: relative;
 }
 
 .singleBorder {
