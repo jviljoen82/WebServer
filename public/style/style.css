@@ -33,8 +33,6 @@ body {
     background-color: #000000;
     color: #ffffff;
     opacity: 1;
-    overflow-wrap: normal;
-    overflow-y: auto;
     display: block;
     position: relative;
     z-index: 1;
@@ -51,6 +49,11 @@ body {
     right: 0;
     position: absolute;
     z-index: 0;
+}
+
+.scrollStory {
+    overflow-wrap: normal;
+    overflow-y: auto;
 }
 
 .singleBorder {
