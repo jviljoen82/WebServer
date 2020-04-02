@@ -18,7 +18,6 @@ body {
     content: "";
     background-image: url("../images/Under-Construction.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
     opacity: 0.1;
     top: 0;
     left: 0;
