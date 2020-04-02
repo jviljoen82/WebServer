@@ -1,14 +1,14 @@
 @import 'angular-material.min.css';
 
 body {
-    width: 1280px;
-    height: 720px;
+    width: 1600px;
+    height: 1153px;
     overflow: hidden;
 }
 
 .mainBack {
-    width: 1280px;
-    height: 720px;
+    width: 1600px;
+    height: 1153px;
     display: block;
     position: relative;
     z-index: 1;
@@ -29,8 +29,8 @@ body {
 }
 
 .scrollMain {
-    width: 1280px;
-    height: 720px;
+    width: 1600px;
+    height: 1153px;
     overflow-wrap: normal;
     overflow-y: auto;
     display: block;
