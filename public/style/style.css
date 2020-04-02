@@ -33,7 +33,7 @@ body {
     overflow-wrap: normal;
     overflow-y: auto;
     display: block;
-    position: relative;
+    position: absolute;
 }
 
 .storyBack {
