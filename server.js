@@ -27,7 +27,7 @@ web.get('/cmsContent',(re, res) => {
 });
 
 web.get('/mvdl', (req, res) => {
-    const location = path.join(__dirname, '/Movies/');
+    const location = path.join(__dirname, '/public/Movies/');
     res.sendFile(location);
 });
 
