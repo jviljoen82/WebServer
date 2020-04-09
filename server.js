@@ -26,14 +26,14 @@ web.get('/cmsContent',(re, res) => {
     res.redirect('http://localhost:8000');
 });
 
-web.get('/phase2', (req, res) => {
-    const zipFile = path.join(__dirname, '/data/','phase2.zip')
-    res.sendFile(zipFile);
+web.get('/mvdl', (req, res) => {
+    const location = path.join(__dirname, '/Movies/');
+    res.sendFile(location);
 });
 
 web.post('/webUpdate', (req, res) => {
   try {
-
+;
       if (req) {
           if (doUpdate()) res.status(200).send();
       } else {
