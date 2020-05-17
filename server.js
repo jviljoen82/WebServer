@@ -22,15 +22,6 @@ web.get('/', (req, res) => {
   res.sendFile(pathToIndex);
 });
 
-web.get('/cmsContent',(re, res) => {
-    res.redirect('http://localhost:8000');
-});
-
-web.get('/mvdl', (req, res) => {
-    const location = path.join(__dirname, '/public/Movies/');
-    res.sendFile(location);
-});
-
 web.post('/webUpdate', (req, res) => {
   try {
 ;
@@ -66,9 +57,13 @@ async function doUpdate() {
     await sleep(5000);
     console.log('Pulling updated Data');
     const gitPull = executor('git pull');
-    await sleep(5000);
-    console.log('Rebuilding Front-end');
-    const gulper = executor('npm run gulp');
+    gitPull.stdout.on('data', (data) => {
+        console.log('Rebuilding Front-end');
+        const gulper = executor('npm run gulp');
+        gulper.stdout.on('data', (data) => {
+            console.log(data);
+        });
+    });
     await sleep(5000);
     console.log('Rebuild Done!');
 }
