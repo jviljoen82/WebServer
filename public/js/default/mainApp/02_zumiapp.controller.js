@@ -1,8 +1,7 @@
 class AppCtrl {
-    constructor($scope, $mdDialog, userCreds) {
+    constructor($scope, $mdDialog) {
         this.scope = $scope;
         this.mdDialog = $mdDialog;
-        this.user = userCreds;
     }
 
     $onInit() {
@@ -11,7 +10,6 @@ class AppCtrl {
 
     closeDialog() {
         this.mdDialog.hide();
-        this.user.name = this.scope.inputName;
     }
 }
 

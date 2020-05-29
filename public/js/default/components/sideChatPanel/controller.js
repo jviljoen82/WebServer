@@ -1,8 +1,7 @@
 class ChatPanel {
-    constructor($scope, $mdDialog, userCreds) {
+    constructor($scope, $mdDialog) {
         this.scope = $scope;
         this.mdDialog = $mdDialog;
-        this.user = userCreds;
     }
 
     showChatPanel() {
