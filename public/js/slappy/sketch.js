@@ -44,6 +44,8 @@ function draw() {
 }
 
 function playGame() {
+	// clear canvas..
+	clear();
     // TODO: reset loop and change back to bg for now.
     if (pipeCount <= 5) {
         background(bg);
