@@ -25,4 +25,4 @@ class SlappyCtrl {
     }
 }
 
-ZumisApp.controller('drenchCtrl', DrenchCtrl);
+ZumisApp.controller('slappyCtrl', SlappyCtrl);
