@@ -11,7 +11,7 @@ class SlappyCtrl {
             preserveScope: true,
             template: `<md-dialog aria-label="Slappy dialog">
                             <md-dialog-content>
-                               <iframe class="slappyGameDialog" sandbox="allow-scripts" src="../../../../slappy.html"></iframe>
+                               <iframe class="slappyGameDialog" sandbox="allow-scripts allow-modals" src="../../../../slappy.html"></iframe>
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$slappyCtrl.closeDialog()" class="md-button">Close</md-button>

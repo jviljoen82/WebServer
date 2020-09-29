@@ -11,7 +11,7 @@ class DrenchCtrl {
             preserveScope: true,
             template: `<md-dialog aria-label="Drench dialog">
                             <md-dialog-content>
-                               <iframe class="drenchGameDialog" sandbox="allow-scripts" src="../../../../drench.html"></iframe>
+                               <iframe class="drenchGameDialog" sandbox="allow-scripts allow-modals" src="../../../../drench.html"></iframe>
                             </md-dialog-content>
                             <md-dialog-actions>
                                 <md-button ng-click="$drenchCtrl.closeDialog()" class="md-button">Close</md-button>
