@@ -28,10 +28,10 @@ function setup() {
   	createCanvas(1000, 600);
   	pipes = [];
   	bird = new Bird();
-  	bg = loadImage('media/backdrops/trees.jpg');
-  	bg2 = loadImage('media/backdrops/trees2.jpg');
-  	ninja = loadImage('media/ninja/ninja.png');
-		slap = loadImage('media/ninja/hand_slap.png');
+  	bg = loadImage('../../media/backdrops/trees.jpg');
+  	bg2 = loadImage('../../media/backdrops/trees2.jpg');
+  	ninja = loadImage('../../media/ninja/ninja.png');
+		slap = loadImage('../../media/ninja/hand_slap.png');
 		pickup = [];
 }
 
