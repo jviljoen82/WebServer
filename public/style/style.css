@@ -94,6 +94,10 @@ body {
     height: 460px;
 }
 
+.slappyGameDialog {
+    width: 1000px;
+    height: 600px;
+}
 .chatback {
     background-color: #000000;
     height: 755px;

@@ -8,16 +8,14 @@ class MenuCtrl {
     }
 
     DownloadDialog() {
-        console.log('Open download dialog');
         document.getElementById('downloadDialogContainer').dispatchEvent(new Event('click'));
     }
 
     SlappyLaunch() {
-        console.log('Slappy Ninja launch');
+        document.getElementById('slappyDialogContainer').dispatchEvent(new Event('click'));
     }
 
     showChat() {
-        console.log('Chat Panel');
         document.getElementById('chatPanel').dispatchEvent(new Event('click'));
     }
 }
