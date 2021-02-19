@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const http = require('http').Server(backendApp);
 const io = require('socket.io')(http);
 const path = require('path');
-require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
+require('https').globalAgent.options.ca = require('ssl-root-cas').create();
 const cors = require('cors');
 
 /**************************************************
