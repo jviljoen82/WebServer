@@ -223,5 +223,5 @@ function reset() {
 function reinitializeVars() {
 	lives = 3;
 	score = 0;
-  pipeCount = 0;
+  	pipeCount = 0;
 }

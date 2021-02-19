@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(web);
 const path = require('path');
 const executor = require('child_process').exec;
-require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
+require('https').globalAgent.options.ca = require('ssl-root-cas').create();
 
 /***************************************************
  * Web server on port 80 for linux host......
